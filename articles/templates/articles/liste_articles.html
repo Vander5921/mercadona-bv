@@ -11,7 +11,7 @@
 
 {% block content %}
 <div class="row">
-    {% for article in liste_articles %}
+    {% for article in articles %}
     <div class="col-md-4">
         <div class="card">
             <img class="card-img-top" src="{{ article.image.url }}" alt="{{ article.nom }}">
@@ -22,7 +22,7 @@
             </div>
         </div>
     </div>
-    {% endfor %}
+{% endfor %}
 </div>
 {% endblock %}
 </body>

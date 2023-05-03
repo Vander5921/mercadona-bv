@@ -18,10 +18,14 @@ from django.contrib import admin
 from django.urls import path, include
 from articles.views import liste_articles
 from articles import views
+from django.views.static import serve
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('connexion/', include('connexion.urls')),
     path('liste_articles/', liste_articles, name='liste_articles'),
     path('', views.home, name='home'),
     path('backoffice/', include('backoffice.urls')),
-]
+] +static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
