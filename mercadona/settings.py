@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'promotion',
     'connexion',
     'backoffice',
     'articles',
@@ -82,7 +83,7 @@ WSGI_APPLICATION = 'mercadona.wsgi.application'
 DATABASES = {
    'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'MercadonaDB', 
+        'NAME': 'Mercadona_db', 
         'USER': 'postgres',
         'PASSWORD': 'Vander',
         'HOST': 'localhost', 

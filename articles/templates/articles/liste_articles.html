@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 <div class="row">
     {% for article in articles %}
     <div class="col-md-4">
@@ -10,11 +11,12 @@
                 <h5 class="card-title">{{ article.nom }}</h5>
                 <p class="card-text">{{ article.description }}</p>
                 <p class="card-text"><small class="text-muted">{{ article.categorie }} - {{ article.prix }} €</small></p>
+                {% if user.is_authenticated and user.is_staff %}
+                <a href="{% url 'promotion:add_promotion' article.id %}" class="btn btn-primary">Ajouter une promotion</a>
+                {% endif %}
             </div>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
-
-

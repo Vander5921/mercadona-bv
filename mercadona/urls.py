@@ -21,12 +21,16 @@ from articles import views
 from django.views.static import serve
 from django.conf import settings
 from django.conf.urls.static import static
+from promotion import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
+    path('add/<int:article_id>/', views.add_promotion, name='add_promotion'),
     path('admin/', admin.site.urls),
     path('connexion/', include('connexion.urls')),
     path('backoffice/', include('backoffice.urls')),
     path('liste_articles/', liste_articles, name='liste_articles'),
-    path('', views.home, name='home'),
+    path('', TemplateView.as_view(template_name='home.html'), name='home'),
+    path('promotion/', include('promotion.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
