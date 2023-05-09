@@ -30,12 +30,9 @@
                         <a class="nav-link" href="{% url 'deconnexion' %}">Déconnexion</a>
                     </li>
                 {% endif %}
-               
-                <li class="nav-item {% block active_home %}{% endblock %}">
-                    <a class="nav-link" href="{% url 'home' %}">Accueil</a>
-                </li>
+            
                 <li class="nav-item {% block active_articles %}{% endblock %}">
-                    <a class="nav-link" href="{% url 'liste_articles' %}">Articles</a>
+                    <a class="nav-link" href="{% url 'liste_articles' %}">Catalogue</a>
                 </li>
             </ul>
         </div>
