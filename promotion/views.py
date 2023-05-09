@@ -8,12 +8,11 @@ def add_promotion(request, article_id, promotion_id=None):
     if request.method == 'POST':
         form = PromotionForm(request.POST)
         if form.is_valid():
-            promotion = form.save(commit=False)
-            promotion.article = article
-            promotion.save()
-            article.prix -= article.prix * promotion.pourcentage / 100
+            promotion = form.save()
+            article.promotion = promotion
             article.save()
             return redirect('liste_articles')
     else:
         form = PromotionForm()
     return render(request, 'promotion/add_promotion.html', {'form': form, 'article': article})
+

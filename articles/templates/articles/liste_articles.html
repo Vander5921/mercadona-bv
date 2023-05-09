@@ -13,7 +13,7 @@
                 {% if article.promotion %}
                 <p class="card-text">
                     <span class="text-muted">{{ article.categorie }} - <s>{{ article.prix }} €</s></span>
-                    <span class="text-danger font-weight-bold">{{ article.promo_price }} €</span>
+                    <span class="text-danger font-weight-bold">{{ article.promo_price|floatformat:2 }} €</span>
                 </p>
             {% else %}
                 <p class="card-text"><span class="text-muted">{{ article.categorie }} - {{ article.prix }} €</span></p>
