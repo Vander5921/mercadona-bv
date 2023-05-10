@@ -1,1 +1,1 @@
-python manage.py runserver
+web: gunicorn mercadona.wsgi --log-file -
