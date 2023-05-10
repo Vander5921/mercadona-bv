@@ -2,9 +2,11 @@
 
 {% block content %}
 
-<div class="row">
+<button id="promo-button">Afficher les articles en promotion</button>
+
+<div class="row" id="article-list">
     {% for article in articles %}
-    <div class="col-md-4">
+    <div class="col-md-4 article-card {% if article.promotion %}promotion{% endif %}">
         <div class="card">
             <img class="card-img-top" src="{{ article.image.url }}" alt="{{ article.nom }}">
             <div class="card-body">
@@ -26,4 +28,17 @@
     </div>
     {% endfor %}
 </div>
+
+<script>
+document.getElementById("promo-button").addEventListener("click", function() {
+  var articleList = document.getElementById("article-list");
+  var cards = articleList.getElementsByClassName("article-card");
+  for (var i = 0; i < cards.length; i++) {
+    if (!cards[i].classList.contains("promotion")) {
+      cards[i].style.display = "none";
+    }
+  }
+});
+</script>
+
 {% endblock %}
